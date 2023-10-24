@@ -55,7 +55,7 @@
       </nav>
     </div>
     <div class="container my-5">
-      <form>
+      <form action="/" method="POST">
         <div class="mb-3">
           <h2>Add a task</h2>
           <label for="exampleInputEmail1" class="form-label">Task name</label>
@@ -86,30 +86,21 @@
         <thead>
           <tr>
             <th scope="col">No.</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Time</th>
           </tr>
         </thead>
         <tbody>
+          {% for todo in allTodo %}
+
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{todo.title}}</td>
+            <td>{{todo.desc}}</td>
+            <td>{{todo.date_created}}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Miles</td>
-            <td>Thornton</td>
-            <td>@twitter</td>
-          </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
